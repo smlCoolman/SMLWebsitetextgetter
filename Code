@@ -1,0 +1,16 @@
+import requests
+import urllib.request
+import time
+import spacy
+from bs4 import BeautifulSoup
+
+user = input("Enter webpage:")
+user = user.replace(" ","_")
+url=user
+print(url)
+
+response = requests.get(url)
+soup = BeautifulSoup(response.content, 'html.parser')
+tag = soup.body
+for string in tag.strings:
+    print(string)
